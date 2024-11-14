@@ -135,6 +135,8 @@ to_predict['z'] = predictions
 print('\nData with Filled Missing Values in "z":')
 print(to_predict)
 
+```
+
 ###
 
 Explanation
@@ -186,4 +188,3 @@ Data with Filled Missing Values in “z”:
 Summary
 
 This approach provides an efficient way to fill missing values in a dataset where relationships between variables can be approximated with linear regression. This method is useful in situations where data is incomplete but exhibits a predictable pattern.
-```
