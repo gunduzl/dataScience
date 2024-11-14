@@ -6,8 +6,6 @@ This example demonstrates how to use a linear regression model to predict and fi
 
 Bu örnek, bir veri kümesinde eksik değerleri tahmin etmek ve doldurmak için nasıl bir doğrusal regresyon modelinin kullanılacağını göstermektedir. Veri kümesi `'x'`, `'y'` ve `'z'` sütunlarını içerir; `'z'` sütununda bazı değerler eksiktir. Kod, `'x'` ve `'y'` ile `'z'` arasındaki ilişkiyi öğrenerek `'z'` sütunundaki eksik değerleri tahmin eder ve yerini doldurur.
 
-### Code
-
 ```python
 import pandas as pd
 import numpy as np
@@ -137,9 +135,7 @@ print(to_predict)
 
 ```
 
-###
-
-Explanation
+#Explanation
 
     1.	Data Creation: We create a DataFrame with columns 'x', 'y', and 'z'. Some values in 'z' are missing (NaN values).
     2.	Data Preparation: Rows with missing values in 'z' are excluded to create a complete dataset (df_m) for model training.
@@ -154,23 +150,23 @@ Initial Data:
 
     x   y     z
 
-0 2 4 8.0
-1 7 15 15.0
-2 8 17 NaN
-3 10 20 20.0
-4 15 24 NaN
-5 17 28 NaN
-6 30 41 35.0
-7 41 56 NaN
+    0 2 4 8.0
+    1 7 15 15.0
+    2 8 17 NaN
+    3 10 20 20.0
+    4 15 24 NaN
+    5 17 28 NaN
+    6 30 41 35.0
+    7 41 56 NaN
 
 Rows with Missing Values in “z”:
 
     x   y   z
 
-2 8 17 NaN
-4 15 24 NaN
-5 17 28 NaN
-7 41 56 NaN
+    2 8 17 NaN
+    4 15 24 NaN
+    5 17 28 NaN
+    7 41 56 NaN
 
 Predictions for Missing Values:
 
@@ -180,10 +176,10 @@ Data with Filled Missing Values in “z”:
 
     x   y     z
 
-2 8 17 16.5
-4 15 24 23.7
-5 17 28 27.2
-7 41 56 50.4
+    2 8 17 16.5
+    4 15 24 23.7
+    5 17 28 27.2
+    7 41 56 50.4
 
 Summary
 
