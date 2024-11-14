@@ -1,8 +1,10 @@
+Here is the Markdown format for your README file, including the code, explanation, and expected output sections.
+
 Predicting Missing Values in a Dataset Using Linear Regression
 
 This example demonstrates how to use a linear regression model to predict and fill missing values in a dataset. The dataset includes columns 'x', 'y', and 'z', where some values in 'z' are missing. We use the relationship between 'x', 'y', and 'z' to estimate and replace the missing values in 'z'.
 
-Code
+###
 
 import pandas as pd
 import numpy as np
@@ -49,6 +51,54 @@ print(predictions)
 to_predict['z'] = predictions
 print('\nData with Filled Missing Values in "z":')
 print(to_predict)
+
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+
+# Create the dataset with some missing values in column 'z'
+
+d = {'x': [2, 7, 8, 10, 15, 17, 30, 41], 'y': [4, 15, 17, 20, 24, 28, 41, 56], 'z': [8, 15, np.nan, 20, np.nan, np.nan, 35, np.nan]}
+df = pd.DataFrame(data=d)
+
+print("Initial Data:")
+print(df)
+
+# Drop rows with missing values in 'z' for training
+
+df_m = df.dropna()
+X = df_m.loc[:, df_m.columns != 'z']
+y = df_m['z']
+
+# Split data into training and testing sets
+
+X_train, X_test, y_train, y_test = train_test_split(X, y)
+
+# Train the linear regression model
+
+LR = LinearRegression()
+LR.fit(X_train, y_train)
+
+# Identify rows where 'z' is missing for prediction
+
+to_predict = df[df['z'].isna()]
+print('\nRows with Missing Values in "z":')
+print(to_predict)
+
+# Predict missing values
+
+print('\nPredictions for Missing Values:')
+predictions = LR.predict(np.array(to_predict[['x', 'y']]))
+print(predictions)
+
+# Fill in the missing values in 'z'
+
+to_predict['z'] = predictions
+print('\nData with Filled Missing Values in "z":')
+print(to_predict)
+
+###
 
 Explanation
 
